@@ -2,23 +2,27 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="17060" started-at="2019-09-19T07:57:27Z" finished-at="2019-09-19T07:57:45Z">
+  <suite name="Default suite" duration-ms="24351" started-at="2019-09-19T10:34:13Z" finished-at="2019-09-19T10:34:37Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="17060" started-at="2019-09-19T07:57:27Z" finished-at="2019-09-19T07:57:45Z">
+    <test name="Default test" duration-ms="24351" started-at="2019-09-19T10:34:13Z" finished-at="2019-09-19T10:34:37Z">
       <class name="org.shl.testng.Flipcart.TestScript">
-        <test-method status="PASS" signature="Launch_Browser()[pri:0, instance:org.shl.testng.Flipcart.TestScript@42d80b78]" name="Launch_Browser" is-config="true" duration-ms="12897" started-at="2019-09-19T07:57:28Z" finished-at="2019-09-19T07:57:40Z">
+        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:org.shl.testng.Flipcart.TestScript@5622fdf]" name="launchBrowser" is-config="true" duration-ms="14500" started-at="2019-09-19T10:34:13Z" finished-at="2019-09-19T10:34:28Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Launch_Browser -->
-        <test-method status="PASS" signature="Login()[pri:0, instance:org.shl.testng.Flipcart.TestScript@42d80b78]" name="Login" duration-ms="2879" started-at="2019-09-19T07:57:40Z" finished-at="2019-09-19T07:57:43Z">
+        </test-method> <!-- launchBrowser -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:org.shl.testng.Flipcart.TestScript@5622fdf]" name="beforeMethod" is-config="true" duration-ms="56" started-at="2019-09-19T10:34:28Z" finished-at="2019-09-19T10:34:28Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method status="PASS" signature="Close_Browser()[pri:0, instance:org.shl.testng.Flipcart.TestScript@42d80b78]" name="Close_Browser" is-config="true" duration-ms="1240" started-at="2019-09-19T07:57:43Z" finished-at="2019-09-19T07:57:45Z">
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="login()[pri:0, instance:org.shl.testng.Flipcart.TestScript@5622fdf]" name="login" duration-ms="8380" started-at="2019-09-19T10:34:28Z" finished-at="2019-09-19T10:34:36Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Close_Browser -->
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:org.shl.testng.Flipcart.TestScript@5622fdf]" name="closeBrowser" is-config="true" duration-ms="1372" started-at="2019-09-19T10:34:36Z" finished-at="2019-09-19T10:34:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
       </class> <!-- org.shl.testng.Flipcart.TestScript -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

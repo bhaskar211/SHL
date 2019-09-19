@@ -1,84 +1,71 @@
 package utilities;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseClass {
 
-    WebDriverWait wait;
-    
-    
-	public void sendValue(WebElement Element,String TextToEnter) {
-		
-		Element.sendKeys(TextToEnter);
+	private WebDriver driver;
+
+	protected BaseClass(WebDriver driver) {
+		this.driver = driver;
 	}
-    
-	public void click(WebElement Element)
-	{
-		Element.click();
+
+	public void sendValue(WebElement element, String textToEnter) {
+		element.sendKeys(textToEnter);
 	}
-	public void clear(WebElement Element) {
-		Element.clear();
+
+	public void click(WebElement element) {
+		element.click();
 	}
-	
-	public int getRating(String Str,String type)
-	{
+
+	public void clear(WebElement element) {
+		element.clear();
+	}
+
+	public int getRating(String Str, String type) {
 		int Rating;
-		String s=null;
-		if(type=="xGrid")
-		{
-			s=Str.replace(",", "");
-			
+		String s = null;
+		if (type == "xGrid") {
+			s = Str.replace(",", "");
+
+		} else if (type == "xList") {
+			s = Str.replace("(", "").replace(")", "").replace(",", "");
 		}
-		else if(type=="xList")
-		{
-			s=Str.replace("(", "").replace(")","").replace(",", "");
-		}
-		Rating=Integer.parseInt(s);
+		Rating = Integer.parseInt(s);
 		return Rating;
 	}
 
-
-	public int StartIndex(String Details)
-	{
+	public int StartIndex(String Details) {
 		int start;
-		if(Details.indexOf('.')==1)
-		{
-			start=3;	
-		}
-		else
-		{
-			start=1;
+		if (Details.indexOf('.') == 1) {
+			start = 3;
+		} else {
+			start = 1;
 		}
 		return start;
 	}
 
-	public int GetProductHigestRating(int[] Ratings)
-	{
-		int index=0;
-		int Heigest=0;
-		for(int i=0;i<Ratings.length;i++)
-		{
-			if(Ratings[i]>Heigest)
-			{
-				Heigest=Ratings[i];
-				index=i;
+	public int GetProductHigestRating(int[] Ratings) {
+		int index = 0;
+		int Heigest = 0;
+		for (int i = 0; i < Ratings.length; i++) {
+			if (Ratings[i] > Heigest) {
+				Heigest = Ratings[i];
+				index = i;
 			}
 
 		}
 		return index;
 	}
-	public void bestRating(int[] Ratings,String[] ProductDetail,String[] StarRating,int index)
-	{
-		for(int i=0;i<Ratings.length;i++)
-		{
-			if(Ratings[i]==Ratings[index])
-			{
+
+	public void bestRating(int[] Ratings, String[] ProductDetail, String[] StarRating, int index) {
+		for (int i = 0; i < Ratings.length; i++) {
+			if (Ratings[i] == Ratings[index]) {
 				System.out.println(Ratings[i]);
 				System.out.println(ProductDetail[i]);
 				System.out.println(StarRating[i]);
 			}
 		}
 	}
-
-	    
 }

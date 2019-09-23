@@ -4,36 +4,24 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 import page.HomePage;
-import page.Product;
+import page.ProductPage;
 import utilities.Constants;
 import utilities.Launcher;
 
-public class TestScript {
-    Launcher Launch=new Launcher();
-    HomePage Home;
-   
-    WebDriver Driver;
-  @BeforeMethod
-  public void Launch_Browser() throws Exception 
-  {
-      Launch.launchBrowser("Chrome");
-      Driver=Launch.Go_To_Url(Constants.URL);
-      
-  }
-  
-  @Test
-  public void Login()
-  {
-     Home=new HomePage(Driver);
-     Home.closeLoginWindow();
-     Driver= Home.search();
-     Product  p=new Product(Driver);
-     p.view();
-  }
-  
-  @AfterMethod
-  public void Close_Browser()
-  {
-      Driver.quit();
-  }
+public class TestScript extends Launcher{
+	@BeforeMethod
+	public void beforeMethod() {
+		launchBrowser();
+		homePage = pageObjectManager.getHomePageObject();
+	}
+
+	@Test
+	public void login() {
+		homePage.goToUrl(Constants.URL);
+		homePage.closeLoginWindow();
+		homePage.clickOnSearchButton();
+		homePage.searchProuct(Constants.PRODUCT);
+		productPage = pageObjectManager.getProductPageObject();
+		productPage.view();
+	}
 }

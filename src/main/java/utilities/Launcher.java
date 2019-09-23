@@ -7,7 +7,9 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import page.CameraPage;
 import page.HomePage;
+import page.HomePageAmazon;
 import page.ProductPage;
 import utilities.Constants;
 import utilities.PageObjectManager;
@@ -15,13 +17,15 @@ import utilities.PageObjectManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Launcher {
-	private WebDriver driver;
+	public WebDriver driver;
 	protected PageObjectManager pageObjectManager;
 	protected HomePage homePage;
 	protected ProductPage productPage;
+	protected CameraPage cameraPage;
+	protected HomePageAmazon homePageAmazon;
 
-	@BeforeClass
-	public void launchBrowser() throws Exception {
+	//@BeforeClass
+	public void launchBrowser()  {
 		switch (Constants.BROWSER) {
 		case "Chrome":
 			WebDriverManager.chromedriver().setup();
@@ -36,7 +40,12 @@ public class Launcher {
 			driver = new InternetExplorerDriver();
 			break;
 		default:
-			throw new Exception("pass valid browser name");
+			try {
+				throw new Exception("pass valid browser name");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		driver.manage().window().maximize();
 		pageObjectManager = new PageObjectManager(driver);

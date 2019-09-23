@@ -1,11 +1,14 @@
 package utilities;
+import java.awt.Desktop.Action;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseClass {
 
-	private WebDriver driver;
+	protected WebDriver driver;
 
 	protected BaseClass(WebDriver driver) {
 		this.driver = driver;
@@ -59,6 +62,22 @@ public class BaseClass {
 		return index;
 	}
 
+	public int lowest(int[] data)
+	{
+		int index=0;
+		int lowest=data[0];
+		for (int i = 0; i < data.length; i++) {
+			if (data[i] < lowest) {
+				lowest = data[i];
+				index = i;
+			}
+
+		}
+		return index-1;
+
+		
+	}
+	
 	public void bestRating(int[] Ratings, String[] ProductDetail, String[] StarRating, int index) {
 		for (int i = 0; i < Ratings.length; i++) {
 			if (Ratings[i] == Ratings[index]) {
@@ -68,4 +87,14 @@ public class BaseClass {
 			}
 		}
 	}
+	
+	 public void hover(WebElement hoverTo,WebDriver driver) {
+		 	Actions set1=new Actions(driver);
+			set1.moveToElement(hoverTo).click().build().perform();
+
+		}
+	 public void goToUrl(String url) {
+			driver.get(url);
+		}
+		
 }

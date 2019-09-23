@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utilities.BaseClass;
 import utilities.Constants;
@@ -12,6 +14,7 @@ import utilities.Constants;
 public class HomePage extends BaseClass {
 
 	private WebDriver driver;
+
 
 	@FindBy(xpath = "//button[text()='✕']")
 	private WebElement quit;
@@ -21,6 +24,12 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement enter;
+	
+	@FindBy(xpath="//span[contains(text(),'Electronics')]")
+	WebElement electronics;
+	
+	@FindBy(xpath="//*[text()='Compact & Bridge Cameras']")
+	WebElement clickTo;
 
 	public HomePage(WebDriver driver) {
 		super(driver);
@@ -28,9 +37,7 @@ public class HomePage extends BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void goToUrl(String url) {
-		driver.get(url);
-	}
+	
 
 	public void closeLoginWindow() {
 		click(quit);
@@ -43,5 +50,14 @@ public class HomePage extends BaseClass {
 	public void searchProuct(String productToSearch) {
 		sendValue(search, productToSearch);
 		click(enter);
+	}
+	
+	public void hoverAndclick()
+	{
+		hover(electronics,driver);
+		WebDriverWait wait=new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Compact & Bridge Cameras']")));
+		click(clickTo);
+		
 	}
 }

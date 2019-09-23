@@ -11,6 +11,7 @@ import utilities.Launcher;
 public class TestScript extends Launcher{
 	@BeforeMethod
 	public void beforeMethod() {
+		launchBrowser();
 		homePage = pageObjectManager.getHomePageObject();
 	}
 
